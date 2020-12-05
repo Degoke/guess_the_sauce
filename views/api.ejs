@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/api/upload" method="POST" enctype="multipart/form-data">
+        <label for="video">Add video</label>
+        <input type="file" name='sauceVideo' accept='video/*'>
+        <label for="name">sauce</label>
+        <input type="text" name='sauce'>
+        <label for="category">question</label>
+        <input type="text" name="question">
+        <input type="submit" value='Add'>
+    </form>
+    <% if(videos) {%> 
+    <div>
+        <h1>All Videos</h1>
+        <% videos.forEach(video => { %>
+            <div>
+                <h3><%= video.sauce %></h3>
+                <video src="<%= video.link %>" width="500" height='400'/>
+            </div>
+            
+        <% }) %>
+    </div>
+<% } %>
+</body>
+</html>
